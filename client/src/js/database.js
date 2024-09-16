@@ -37,8 +37,39 @@ export const putDb = async (content) => {
   }
 };
 
-// TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => console.error('getDb not implemented');
+// Get all content from the database
+export const getDb = async () => {
+  console.log('Getting all content from CodeNova database');
+  try {
+    const codeNovaDb = await openDB(DB_NAME, DB_VERSION);
+    const tx = codeNovaDb.transaction(STORE_NAME, 'readonly');
+    const store = tx.objectStore(STORE_NAME);
+    // Use .getAll() to retrieve all records in the store
+    const request = store.getAll();
+    const result = await request;
+    console.log('Data retrieved successfully', result);
+    return result;
+  } catch (error) {
+    console.error('getDb not implemented', error);
+  }
+};
+
+// BONUS: Delete a specific entry from the database
+export const deleteDb = async (id) => {
+  console.log('Deleting from CodeNova database', id);
+  try {
+    const codeNovaDb = await openDB(DB_NAME, DB_VERSION);
+    const tx = codeNovaDb.transaction(STORE_NAME, 'readwrite');
+    const store = tx.objectStore(STORE_NAME);
+    // Use .delete() to remove a record by its id
+    const request = store.delete(id);
+    const result = await request;
+    console.log('Data deleted successfully', result);
+    return result;
+  } catch (error) {
+    console.error('deleteDb not implemented', error);
+  }
+};
 
 // Initialize the database when the module is imported
 initdb();
