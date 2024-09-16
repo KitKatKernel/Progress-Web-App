@@ -1,7 +1,7 @@
 {
-  "name": "Just another note taker",
+  "name": "codenova",
   "version": "1.0.0",
-  "description": "Time to take notes... AGAIN",
+  "description": "CodeNova - A Progressive Web App Text Editor",
   "main": "server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -11,13 +11,14 @@
     "server": "cd server && nodemon server.js",
     "client": "cd client && npm start"
   },
-  "keywords": [],
+  "keywords": ["text editor", "PWA", "code editor"],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0"
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
   }
 }
