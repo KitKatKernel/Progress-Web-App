@@ -20,8 +20,22 @@ const initdb = async () => {
   });
 };
 
-// TODO: Add logic to a method that accepts some content and adds it to the database
-export const putDb = async (content) => console.error('putDb not implemented');
+// Add or update content in the database
+export const putDb = async (content) => {
+  console.log('Saving to CodeNova database');
+  try {
+    const codeNovaDb = await openDB(DB_NAME, DB_VERSION);
+    const tx = codeNovaDb.transaction(STORE_NAME, 'readwrite');
+    const store = tx.objectStore(STORE_NAME);
+    // Use .put() to either add new content or update existing
+    const request = store.put({ content: content, timestamp: new Date().getTime() });
+    const result = await request;
+    console.log('Data saved successfully', result);
+    return result;
+  } catch (error) {
+    console.error('putDb not implemented', error);
+  }
+};
 
 // TODO: Add logic for a method that gets all the content from the database
 export const getDb = async () => console.error('getDb not implemented');
