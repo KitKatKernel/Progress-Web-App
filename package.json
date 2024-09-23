@@ -4,10 +4,10 @@
   "description": "Just Another Text Editor",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "server": "nodemon server/server.js",
+    "start": "npm run build && cd server && node server.js",
+    "server": "cd server nodemon server.js --ignore client",
     "build": "cd client && npm install && npm run build",
-    "install": "cd client && npm install",
+    "install": "cd client && npm install && cd ../server && npm install",
     "client": "cd client && npm start"
   },
   "keywords": [],
@@ -18,8 +18,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  },
-  "engines": {
-    "node": "14.x"
   }
 }
