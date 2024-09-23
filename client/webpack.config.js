@@ -5,9 +5,7 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
-    // Set the mode to development
-    mode: 'development',
-    // Define entry points for the bundle
+    mode: 'production',
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js',
@@ -23,7 +21,7 @@ module.exports = () => {
       // Generate HTML file and inject bundles
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'CodeNova'
+        title: 'Just Another Text Editor'
       }),
       // Inject service worker
       new InjectManifest({
@@ -34,9 +32,9 @@ module.exports = () => {
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
-        name: 'CodeNova',
-        short_name: 'CodeNova',
-        description: 'A sleek, modern text editor for your coding needs',
+        name: 'Just Another Text Editor',
+        short_name: 'JATE',
+        description: 'Take notes with JavaScript syntax highlighting!',
         background_color: '#225ca3',
         theme_color: '#225ca3',
         start_url: '/',

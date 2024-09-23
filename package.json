@@ -6,10 +6,9 @@
   "scripts": {
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
-    "build": "cd client && npm run build",
+    "build": "cd client && npm install && npm run build",
     "install": "cd client && npm install",
-    "client": "cd client && npm start",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "client": "cd client && npm start"
   },
   "keywords": [],
   "author": "",
