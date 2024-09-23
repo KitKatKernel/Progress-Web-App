@@ -3,14 +3,13 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack --mode production",
-    "start": "webpack --watch"
+    "start": "webpack serve --mode development"
   },
   "author": "2U",
   "license": "UNLICENSED",
   "dependencies": {
     "code-mirror-themes": "^1.0.0",
-    "idb": "^6.1.2",
-    "webpack-cli": "^4.8.0"
+    "idb": "^6.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -24,6 +23,7 @@
     "http-server": "^0.11.1",
     "style-loader": "^3.2.1",
     "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.0.0",
     "webpack-pwa-manifest": "^4.3.0",
     "workbox-webpack-plugin": "^6.2.4"
